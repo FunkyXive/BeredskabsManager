@@ -157,4 +157,4 @@ JET_THEMES = [
         'title': 'Light Gray'
     }
 ]
-
+JET_INDEX_DASHBOARD = 'dashboard.CustomIndexDashboard'
