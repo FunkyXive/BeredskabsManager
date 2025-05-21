@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -124,7 +125,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #JET CONFIG
-JET_DEFAULT_THEME = 'default'
+JET_DEFAULT_THEME = 'light-gray'
 JET_THEMES = [
     {
         'theme': 'default', # theme folder name
@@ -157,4 +158,12 @@ JET_THEMES = [
         'title': 'Light Gray'
     }
 ]
-JET_INDEX_DASHBOARD = 'dashboard.CustomIndexDashboard'
+JET_INDEX_DASHBOARD = 'BeredskabsManager.dashboard.CustomIndexDashboard'
+JET_SIDE_MENU_COMPACT = True
+JET_SIDE_MENU_ITEMS = [  # A list of application or custom item dicts
+    {'label': _('General'), 'app_label': 'core', 'items': [
+        {'label': _('Overblik'), 'url': '/'},
+        {'label': _('Opgaver'), 'url': '/opgaver'},
+        {'label': _('Administration'), 'url': '/administration'},
+    ]},
+]
